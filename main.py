@@ -31,7 +31,9 @@ class Experience(BaseModel):
 
 class Formation(BaseModel):
     ref: str
-    description: __repr_str__
+    description: str
+    starting_date: str
+    ending_date: str
 
 
 @app.get("/")
