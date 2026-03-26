@@ -1,7 +1,11 @@
 from fastapi import FastAPI
+from fastapi.responses import HTMLResponse
+from fastapi.templating import Jinja2Templates
+from pathlib import Path
 from pydantic import BaseModel
 
 app = FastAPI()
+templates = Jinja2Templates(directory="templates")
 
 
 class Interest(BaseModel):
@@ -67,9 +71,9 @@ class User(BaseModel):
 user_database = []
 
 
-@app.get("/")
+@app.get("/", response_class=HTMLResponse)
 def read_root():
-    return "This is Maxime's and Léopold's amazing website wouhou"
+    return Path("pages/home.html").read_text()
 
 
 @app.get("/user_database")
