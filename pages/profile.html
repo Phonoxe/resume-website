@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>This is your profile!</h1>
+        <p id="name"></p>
+        <p id="email"></p>
+        <a href="/"><button>Return to home page</button></a>
+        <button type="button" onclick="modify_name()">Modify your name</button>
+
+        <script>
+            const params = new URLSearchParams(window.location.search); // reads the URL
+            const id = params.get("id"); // extracts the "id" parameter
+
+            async function loadProfile() {
+                const response = await fetch(`/get_user?id=${id}`);
+                const user = await response.json();
+
+                document.getElementById("name").innerText = user.info.name;
+                document.getElementById("email").innerText = user.info.coordinate.email;
+            }
+
+            async function modify_name() {
+                window.location.href=`/modify_name?id=${id}`
+            }
+
+            loadProfile();
+        </script>
+    </body>
+</html>

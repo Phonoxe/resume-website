@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <form>
+        <input type="text" id="userID" placeholder="Enter your id">
+        <button type="button" onclick="submitForm()">Log in</button>
+    </form>
+    <script>
+        async function submitForm(){
+            const id = document.getElementById("userID").value;
+
+            const response = await fetch(`/get_user?id=${id}`);
+
+            if (response.ok) {
+                window.location.href = `/profile?id=${id}`; // redirect to profile page
+            } else {
+                alert("User not found!");
+            }
+        }
+    </script>
+</html>
+
+
