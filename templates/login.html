@@ -1,0 +1,23 @@
+<!-- templates/login.html -->
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <h1>Login</h1>
+    <input type="text" id="userId" placeholder="Enter your id">
+    <button type="button" onclick="submitForm()">Log in</button>
+    <p id="feedback"></p>
+
+    <script>
+        async function submitForm() {
+            const id = document.getElementById("userId").value;
+            const response = await fetch(`/get_user?id=${id}`);
+            if (response.ok) {
+                window.location.href = `/profile?id=${id}`;
+            } else {
+                document.getElementById("feedback").innerText = "User not found!";
+            }
+        }
+    </script>
+{% endblock %}

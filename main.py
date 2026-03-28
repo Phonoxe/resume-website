@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.responses import JSONResponse
 from fastapi.templating import Jinja2Templates
@@ -89,28 +89,31 @@ user_database = load_database()
 
 
 @app.get("/", response_class=HTMLResponse)
-def read_root():
-    return Path("pages/home.html").read_text()
+def read_root(request: Request):
+    return templates.TemplateResponse(request, "home.html")
 
 
 @app.get("/sign_up", response_class=HTMLResponse)
-def read_signup():
-    return Path("pages/signup.html").read_text()
+def read_signup(request: Request):
+    return templates.TemplateResponse(request, "signup.html")
 
 
 @app.get("/login", response_class=HTMLResponse)
-def read_login():
-    return Path("pages/login.html").read_text()
+def read_login(request: Request):
+    return templates.TemplateResponse(request, "login.html")
 
 
 @app.get("/profile", response_class=HTMLResponse)
-def read_profile():
-    return Path("pages/profile.html").read_text()
+def read_profile(request: Request, id: str):
+    user = next((u for u in user_database if u.id == id), None)
+    if not user:
+        return JSONResponse(status_code=404, content="User not found")
+    return templates.TemplateResponse(request, "profile.html", {"user": user})
 
 
 @app.get("/modify_name", response_class=HTMLResponse)
-def read_modify_name():
-    return Path("pages/modify_name.html").read_text()
+def read_modify_name(request: Request):
+    return templates.TemplateResponse(request, "modify_name.html")
 
 
 # This route returns the list of users

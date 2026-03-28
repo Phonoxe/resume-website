@@ -1,0 +1,35 @@
+<!-- templates/signup.html -->
+{% extends "base.html" %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+    <h1>Sign up freely!</h1>
+    <input type="text" id="username" placeholder="Enter your name">
+    <input type="email" id="email" placeholder="Enter your email">
+    <button type="button" onclick="submitForm()">Send</button>
+    <p id="feedback"></p>
+
+    <script>
+        async function submitForm() {
+            const payload = {
+                info: {
+                    name: document.getElementById("username").value,
+                    coordinate: {
+                        email: document.getElementById("email").value
+                    }
+                }
+            };
+            const response = await fetch("/add_user", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            });
+            if (response.ok) {
+                window.location.href = "/login";
+            } else {
+                document.getElementById("feedback").innerText = "Something went wrong.";
+            }
+        }
+    </script>
+{% endblock %}

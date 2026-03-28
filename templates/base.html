@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}My App{% endblock %}</title>
+    </head>
+    <body>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/login">Login</a>
+            <a href="/sign_up">Sign up</a>
+        </nav>
+
+        {% block content %}{% endblock %}
+    </body>
+</html>
