@@ -1,22 +1,33 @@
-<!-- templates/login.html -->
 {% extends "base.html" %}
-
-{% block title %}Login{% endblock %}
-
 {% block content %}
     <h1>Login</h1>
-    <input type="text" id="userId" placeholder="Enter your id">
+    <input type="email" id="email" placeholder="Enter your email">
+    <input type="password" id="password" placeholder="Enter your password">
     <button type="button" onclick="submitForm()">Log in</button>
     <p id="feedback"></p>
 
     <script>
         async function submitForm() {
-            const id = document.getElementById("userId").value;
-            const response = await fetch(`/get_user?id=${id}`);
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // /token expects form data, not JSON
+            const formData = new URLSearchParams();
+            formData.append("username", email);
+            formData.append("password", password);
+
+            const response = await fetch("/token", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: formData
+            });
+
             if (response.ok) {
-                window.location.href = `/profile?id=${id}`;
+                const data = await response.json();
+                localStorage.setItem("token", data.access_token); // store token
+                window.location.href = "/profile";
             } else {
-                document.getElementById("feedback").innerText = "User not found!";
+                document.getElementById("feedback").innerText = "Incorrect email or password.";
             }
         }
     </script>

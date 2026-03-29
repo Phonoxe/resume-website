@@ -1,18 +1,16 @@
-<!-- templates/signup.html -->
 {% extends "base.html" %}
-
-{% block title %}Sign Up{% endblock %}
-
 {% block content %}
-    <h1>Sign up freely!</h1>
+    <h1>Sign up!</h1>
     <input type="text" id="username" placeholder="Enter your name">
     <input type="email" id="email" placeholder="Enter your email">
+    <input type="password" id="password" placeholder="Enter your password">
     <button type="button" onclick="submitForm()">Send</button>
     <p id="feedback"></p>
 
     <script>
         async function submitForm() {
             const payload = {
+                password: document.getElementById("password").value,
                 info: {
                     name: document.getElementById("username").value,
                     coordinate: {

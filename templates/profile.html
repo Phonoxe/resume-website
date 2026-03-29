@@ -1,14 +1,40 @@
 <!-- templates/profile.html -->
 {% extends "base.html" %}
 
-{% block title %}{{ user.info.name }}'s Profile{% endblock %}
-
 {% block content %}
-    <h1>This is your profile, {{ user.info.name }}!</h1>
+    <h1>Your profile</h1>
+    <p id="name"></p>
+    <p id="email"></p>
+    <button onclick="logout()">Logout</button>
+    <button onclick="window.location.href='/modify_name'">Modify your name</button>
 
-    {% if user.info.coordinate %}
-        <p>Email: {{ user.info.coordinate.email }}</p>
-    {% endif %}
+    <script>
+        async function loadProfile() {
+            const token = localStorage.getItem("token");
+            if (!token) {
+                window.location.href = "/login"; // redirect if not logged in
+                return;
+            }
 
-    <a href="/modify_name?id={{ user.id }}"><button>Modify your name</button></a>
+            const response = await fetch("/me", {
+                headers: { "Authorization": `Bearer ${token}` }
+            });
+
+            if (!response.ok) {
+                window.location.href = "/login"; // token expired or invalid
+                return;
+            }
+
+            const user = await response.json();
+            document.getElementById("name").innerText = user.info.name;
+            document.getElementById("email").innerText = user.info.coordinate.email;
+        }
+
+        function logout() {
+            localStorage.removeItem("token");
+            window.location.href = "/login";
+        }
+
+        loadProfile();
+    </script>
 {% endblock %}

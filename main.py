@@ -1,10 +1,21 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Depends, HTTPException
+from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from fastapi.responses import HTMLResponse
 from fastapi.responses import JSONResponse
 from fastapi.templating import Jinja2Templates
 import json
 from pathlib import Path
 from pydantic import BaseModel
+from passlib.context import CryptContext
+from jose import JWTError, jwt
+from datetime import datetime, timedelta
+
+SECRET_KEY = "change_this_to_a_long_random_string"
+ALGORITHM = "HS256"
+TOKEN_EXPIRE_MINUTES = 60
+
+pwd_context = CryptContext(schemes=["bcrypt"])
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
@@ -79,6 +90,7 @@ class Photo(BaseModel):
 
 class User(BaseModel):
     id: str | None = 0
+    password: str | None = None
     info: PersonnalInfo
     experiences: list[Experience] | None = None
     formations: list[Formation] | None = None
@@ -86,6 +98,32 @@ class User(BaseModel):
 
 
 user_database = load_database()
+
+
+def hash_password(password: str) -> str:
+    return pwd_context.hash(password)
+
+
+def verify_password(plain: str, hashed: str) -> bool:
+    return pwd_context.verify(plain, hashed)
+
+
+def create_token(data: dict) -> str:
+    payload = data.copy()
+    payload["exp"] = datetime.utcnow() + timedelta(minutes=TOKEN_EXPIRE_MINUTES)
+    return jwt.encode(payload, SECRET_KEY, algorithm=ALGORITHM)
+
+
+def get_current_user(token: str = Depends(oauth2_scheme)) -> User:
+    try:
+        payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
+        user_id = payload.get("sub")
+        user = next((u for u in user_database if u.id == user_id), None)
+        if not user:
+            raise HTTPException(status_code=401, detail="User not found")
+        return user
+    except JWTError:
+        raise HTTPException(status_code=401, detail="Invalid token")
 
 
 @app.get("/", response_class=HTMLResponse)
@@ -104,11 +142,14 @@ def read_login(request: Request):
 
 
 @app.get("/profile", response_class=HTMLResponse)
-def read_profile(request: Request, id: str):
-    user = next((u for u in user_database if u.id == id), None)
-    if not user:
-        return JSONResponse(status_code=404, content="User not found")
-    return templates.TemplateResponse(request, "profile.html", {"user": user})
+def read_profile(request: Request):
+    return templates.TemplateResponse(request, "profile.html")
+
+
+# A separate API route that returns the user data
+@app.get("/me")
+def get_me(current_user: User = Depends(get_current_user)):
+    return current_user
 
 
 @app.get("/modify_name", response_class=HTMLResponse)
@@ -134,23 +175,31 @@ def get_user(id: str):
 # This route adds a new user to the users list
 @app.post("/add_user")
 def add_user(user: User):
-    if user.id == 0:
-        user.id = user.info.coordinate.email
+    if not user.password:
+        return JSONResponse(status_code=400, content="Password is required")
+    user.id = user.info.coordinate.email
+    user.password = hash_password(user.password)  # hash before saving
     user_database.append(user)
     save_database()
     return f"{user.info.name} added to users!"
 
 
+@app.post("/token")
+def login(form_data: OAuth2PasswordRequestForm = Depends()):
+    user = next((u for u in user_database if u.id == form_data.username), None)
+    if not user or not verify_password(form_data.password, user.password):
+        raise HTTPException(status_code=401, detail="Incorrect email or password")
+    token = create_token({"sub": user.id})
+    return {"access_token": token, "token_type": "bearer"}
+
+
 # This route allows modification of a name given the id and the new name
 @app.post("/modify_user_name")
-def set_user_name(id: str, name: str):
-    for user in user_database:
-        if user.id == id:
-            previous_name = user.info.name
-            user.info.name = name
-            save_database()
-            return f"{previous_name} was changed to {name}"
-    return JSONResponse(status_code=404, content="User not found")
+def set_user_name(name: str, current_user: User = Depends(get_current_user)):
+    previous_name = current_user.info.name
+    current_user.info.name = name
+    save_database()
+    return f"{previous_name} was changed to {name}"
 
 
 # This route deletes a user given its id

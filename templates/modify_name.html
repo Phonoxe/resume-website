@@ -15,8 +15,12 @@
 
         async function submitName() {
             const newName = document.getElementById("newName").value;
+            const token = localStorage.getItem("token");
             const response = await fetch(`/modify_user_name?id=${id}&name=${newName}`, {
-                method: "POST"
+                method: "POST",
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
             });
             if (response.ok) {
                 window.location.href = `/profile?id=${id}`;
