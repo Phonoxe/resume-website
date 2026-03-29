@@ -184,6 +184,7 @@ def add_user(user: User):
     return f"{user.info.name} added to users!"
 
 
+# Warning: The form_data.password is not hashed so we can access it. Idk if this is a security issue or not, but it is something to keep in mind
 @app.post("/token")
 def login(form_data: OAuth2PasswordRequestForm = Depends()):
     user = next((u for u in user_database if u.id == form_data.username), None)
