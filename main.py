@@ -187,7 +187,7 @@ def add_user(user: User):
 # Warning: The form_data.password is not hashed so we can access it. Idk if this is a security issue or not, but it is something to keep in mind
 @app.post("/token")
 def login(form_data: OAuth2PasswordRequestForm = Depends()):
-    user = next((u for u in user_database if u.id == form_data.username), None)
+    user = next((user for user in user_database if user.id == form_data.username), None)
     if not user or not verify_password(form_data.password, user.password):
         raise HTTPException(status_code=401, detail="Incorrect email or password")
     token = create_token({"sub": user.id})

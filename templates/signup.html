@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
     <h1>Sign up!</h1>
-    <input type="text" id="username" placeholder="Enter your name">
-    <input type="email" id="email" placeholder="Enter your email">
-    <input type="password" id="password" placeholder="Enter your password">
-    <button type="button" onclick="submitForm()">Send</button>
+    <form id="signupForm" onsubmit="submitForm(); return false;">
+        <input type="text" id="username" placeholder="Enter your name">
+        <input type="email" id="email" placeholder="Enter your email">
+        <input type="password" id="password" placeholder="Enter your password">
+        <button type="submit">Send</button>
+    </form>
     <p id="feedback"></p>
 
     <script>

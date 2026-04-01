@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
     <h1>Login</h1>
-    <input type="email" id="email" placeholder="Enter your email">
-    <input type="password" id="password" placeholder="Enter your password">
-    <button type="button" onclick="submitForm()">Log in</button>
+    <form id="loginForm" onsubmit="submitForm(); return false;">
+        <input type="email" id="email" placeholder="Enter your email">
+        <input type="password" id="password" placeholder="Enter your password">
+        <button type="submit">Log in</button>
+    </form>
     <p id="feedback"></p>
 
     <script>
@@ -30,5 +32,7 @@
                 document.getElementById("feedback").innerText = "Incorrect email or password.";
             }
         }
+
+
     </script>
 {% endblock %}
