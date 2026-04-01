@@ -28,7 +28,8 @@
             if (response.ok) {
                 window.location.href = "/login";
             } else {
-                document.getElementById("feedback").innerText = "Something went wrong.";
+                data = await response.json()
+                document.getElementById("feedback").innerText = data.error;
             }
         }
     </script>

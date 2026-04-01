@@ -175,8 +175,8 @@ def get_user(id: str):
 # This route adds a new user to the users list
 @app.post("/add_user")
 def add_user(user: User):
-    if not user.password:
-        return JSONResponse(status_code=400, content="Password is required")
+    if not user.password or user.password.strip() == "":
+        return JSONResponse(status_code=400, content={"error": "Password is required"})
     user.id = user.info.coordinate.email
     user.password = hash_password(user.password)  # hash before saving
     user_database.append(user)
