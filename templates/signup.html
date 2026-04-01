@@ -1,33 +1,51 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>Sign up!</h1>
-    <input type="text" id="username" placeholder="Enter your name">
-    <input type="email" id="email" placeholder="Enter your email">
-    <input type="password" id="password" placeholder="Enter your password">
-    <button type="button" onclick="submitForm()">Send</button>
-    <p id="feedback"></p>
+<div class="card">
+    <h2 class="card-title">Sign Up :</h2>
+    <hr class="card-divider">
 
-    <script>
-        async function submitForm() {
-            const payload = {
-                password: document.getElementById("password").value,
-                info: {
-                    name: document.getElementById("username").value,
-                    coordinate: {
-                        email: document.getElementById("email").value
-                    }
+    <div class="form-group">
+        <label for="username">Name :</label>
+        <input type="text" id="username" placeholder="TextInput">
+    </div>
+    
+    <div class="form-group">
+        <label for="email">email :</label>
+        <input type="email" id="email" placeholder="TextInput">
+    </div>
+    
+    <div class="form-group">
+        <label for="password">password :</label>
+        <input type="password" id="password" placeholder="TextInput">
+    </div>
+
+    <div class="btn-container">
+        <button type="button" onclick="submitForm()">Sign Up</button>
+    </div>
+    <p id="feedback"></p>
+</div>
+
+<script>
+    async function submitForm() {
+        const payload = {
+            password: document.getElementById("password").value,
+            info: {
+                name: document.getElementById("username").value,
+                coordinate: {
+                    email: document.getElementById("email").value
                 }
-            };
-            const response = await fetch("/add_user", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(payload)
-            });
-            if (response.ok) {
-                window.location.href = "/login";
-            } else {
-                document.getElementById("feedback").innerText = "Something went wrong.";
             }
+        };
+        const response = await fetch("/add_user", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+        });
+        if (response.ok) {
+            window.location.href = "/login";
+        } else {
+            document.getElementById("feedback").innerText = "Something went wrong.";
         }
-    </script>
+    }
+</script>
 {% endblock %}
