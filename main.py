@@ -163,20 +163,18 @@ def see_database():
     return user_database
 
 
-# This route verifies if the given id correspond to a user, if yes, returns it
-@app.get("/get_user")
-def get_user(id: str):
-    for user in user_database:
-        if user.id == id:
-            return user
-    return JSONResponse(status_code=404, content="User not found")
-
-
 # This route adds a new user to the users list
 @app.post("/add_user")
 def add_user(user: User):
-    if not user.password:
-        return JSONResponse(status_code=400, content="Password is required")
+    if not user.password or user.password.strip() == "":
+        return JSONResponse(status_code=400, content={"error": "Password is required"})
+    previous_user = next(
+        (u for u in user_database if u.id == user.info.coordinate.email), None
+    )
+    if previous_user:
+        return JSONResponse(
+            status_code=400, content={"error": "This email is already registered"}
+        )
     user.id = user.info.coordinate.email
     user.password = hash_password(user.password)  # hash before saving
     user_database.append(user)
@@ -187,7 +185,7 @@ def add_user(user: User):
 # Warning: The form_data.password is not hashed so we can access it. Idk if this is a security issue or not, but it is something to keep in mind
 @app.post("/token")
 def login(form_data: OAuth2PasswordRequestForm = Depends()):
-    user = next((u for u in user_database if u.id == form_data.username), None)
+    user = next((user for user in user_database if user.id == form_data.username), None)
     if not user or not verify_password(form_data.password, user.password):
         raise HTTPException(status_code=401, detail="Incorrect email or password")
     token = create_token({"sub": user.id})
@@ -205,8 +203,11 @@ def set_user_name(name: str, current_user: User = Depends(get_current_user)):
 
 # This route deletes a user given its id
 @app.delete("/delete_user")
-def delete_user(id: int):
-    user = user_database.pop(id)
+def delete_user(id: str):
+    user = next((user for user in user_database if user.id == id), None)
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    user_database.remove(user)
     save_database()
     return f"{user.info.name} Was removed"
 
