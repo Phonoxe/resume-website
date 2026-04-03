@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Login</h1>
+    <form id="loginForm" onsubmit="submitForm(); return false;">
+        <input type="email" id="email" placeholder="Enter your email">
+        <input type="password" id="password" placeholder="Enter your password">
+        <button type="submit">Log in</button>
+    </form>
+    <p id="feedback"></p>
+
+    <script>
+        async function submitForm() {
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+
+            // /token expects form data, not JSON
+            const formData = new URLSearchParams();
+            formData.append("username", email);
+            formData.append("password", password);
+
+            const response = await fetch("/token", {
+                method: "POST",
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: formData
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                localStorage.setItem("token", data.access_token); // store token
+                window.location.href = "/profile";
+            } else {
+                document.getElementById("feedback").innerText = "Incorrect email or password.";
+            }
+        }
+
+
+    </script>
+{% endblock %}

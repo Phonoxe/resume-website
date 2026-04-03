@@ -1,0 +1,32 @@
+<!-- templates/modify_name.html -->
+{% extends "base.html" %}
+
+{% block title %}Modify Name{% endblock %}
+
+{% block content %}
+    <h1>Modify your name</h1>
+    <input type="text" id="newName" placeholder="Enter your new name">
+    <button type="button" onclick="submitName()">Confirm</button>
+    <p id="feedback"></p>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+
+        async function submitName() {
+            const newName = document.getElementById("newName").value;
+            const token = localStorage.getItem("token");
+            const response = await fetch(`/modify_user_name?id=${id}&name=${newName}`, {
+                method: "POST",
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+            if (response.ok) {
+                window.location.href = `/profile?id=${id}`;
+            } else {
+                document.getElementById("feedback").innerText = "Something went wrong.";
+            }
+        }
+    </script>
+{% endblock %}

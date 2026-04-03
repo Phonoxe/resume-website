@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Sign up!</h1>
+    <form id="signupForm" onsubmit="submitForm(); return false;">
+        <input type="text" id="username" placeholder="Enter your name">
+        <input type="email" id="email" placeholder="Enter your email">
+        <input type="password" id="password" placeholder="Enter your password">
+        <button type="submit">Send</button>
+    </form>
+    <p id="feedback"></p>
+
+    <script>
+        async function submitForm() {
+            const payload = {
+                password: document.getElementById("password").value,
+                info: {
+                    name: document.getElementById("username").value,
+                    coordinate: {
+                        email: document.getElementById("email").value
+                    }
+                }
+            };
+            const response = await fetch("/add_user", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            });
+            if (response.ok) {
+                window.location.href = "/login";
+            } else {
+                data = await response.json()
+                document.getElementById("feedback").innerText = data.error;
+            }
+        }
+    </script>
+{% endblock %}
