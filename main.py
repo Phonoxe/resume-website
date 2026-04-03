@@ -177,6 +177,13 @@ def get_user(id: str):
 def add_user(user: User):
     if not user.password or user.password.strip() == "":
         return JSONResponse(status_code=400, content={"error": "Password is required"})
+    previous_user = next(
+        (u for u in user_database if u.id == user.info.coordinate.email), None
+    )
+    if previous_user:
+        return JSONResponse(
+            status_code=400, content={"error": "This email is already registered"}
+        )
     user.id = user.info.coordinate.email
     user.password = hash_password(user.password)  # hash before saving
     user_database.append(user)
