@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>{% block title %}My App{% endblock %}</title>
     <style>
@@ -53,7 +54,7 @@
             padding: 2.5rem 3rem;
             width: 100%;
             max-width: 650px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
             position: relative;
         }
 
@@ -89,7 +90,8 @@
             margin-right: 1rem;
         }
 
-        .form-group input, .form-group .readonly-field {
+        .form-group input,
+        .form-group .readonly-field {
             flex: 1;
             padding: 0.6rem 0.8rem;
             border: 1px solid #d4d4d4;
@@ -123,7 +125,8 @@
             gap: 15rem;
         }
 
-        button, .btn {
+        button,
+        .btn {
             background-color: #f1f1f1;
             border: 1px solid #d4d4d4;
             padding: 0.6rem 2.5rem;
@@ -135,7 +138,8 @@
             font-family: inherit;
         }
 
-        button:hover, .btn:hover {
+        button:hover,
+        .btn:hover {
             background-color: #e2e2e2;
         }
 
@@ -148,9 +152,10 @@
         }
     </style>
 </head>
+
 <body>
     <nav>
-            <a href="/"><button>Home</button></a>
+        <a href="/">Home</a>
     </nav>
     <header>
         <div class="header-content">
@@ -162,4 +167,5 @@
         {% block content %}{% endblock %}
     </main>
 </body>
+
 </html>

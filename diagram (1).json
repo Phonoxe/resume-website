@@ -1,0 +1,787 @@
+{
+    "initial": {
+        "diagrams": [
+            {
+                "id": "1775037309031",
+                "items": [
+                    {
+                        "id": "1775037309184",
+                        "appearance": {
+                            "STROKE_COLOR": 13224393,
+                            "STROKE_THICKNESS": 2,
+                            "TEXT_DISABLED": true
+                        },
+                        "renderer": "HorizontalLine",
+                        "transform": {
+                            "x": 500,
+                            "y": 162,
+                            "w": 1000,
+                            "h": 2,
+                            "r": 0
+                        },
+                        "type": "Shape"
+                    },
+                    {
+                        "id": "1775037309300",
+                        "appearance": {
+                            "FONT_SIZE": 24,
+                            "BACKGROUND_COLOR": 2434341,
+                            "TEXT": "Mon site Portfolio"
+                        },
+                        "renderer": "Heading",
+                        "transform": {
+                            "x": 509,
+                            "y": 124,
+                            "w": 210,
+                            "h": 48,
+                            "r": 0
+                        },
+                        "type": "Shape"
+                    },
+                    {
+                        "id": "1775037309333",
+                        "appearance": {
+                            "FOREGROUND_COLOR": 15790320,
+                            "FONT_SIZE": 16,
+                            "BACKGROUND_COLOR": 2434341,
+                            "STROKE_COLOR": 13224393,
+                            "STROKE_THICKNESS": 1,
+                            "TEXT_ALIGNMENT": "center",
+                            "TEXT": "Login"
+                        },
+                        "renderer": "Button",
+                        "transform": {
+                            "x": 315.5,
+                            "y": 422,
+                            "w": 177,
+                            "h": 58,
+                            "r": 0
+                        },
+                        "type": "Shape"
+                    },
+                    {
+                        "id": "1775037309340",
+                        "appearance": {
+                            "FOREGROUND_COLOR": 15790320,
+                            "FONT_SIZE": 16,
+                            "BACKGROUND_COLOR": 2434341,
+                            "STROKE_COLOR": 13224393,
+                            "STROKE_THICKNESS": 1,
+                            "TEXT_ALIGNMENT": "center",
+                            "TEXT": "Sign Up"
+                        },
+                        "renderer": "Button",
+                        "transform": {
+                            "x": 702.5,
+                            "y": 422,
+                            "w": 177,
+                            "h": 58,
+                            "r": 0
+                        },
+                        "type": "Shape"
+                    },
+                    {
+                        "id": "1775037309611",
+                        "appearance": {
+                            "FOREGROUND_COLOR": 16777215,
+                            "TEXT_DISABLED": true
+                        },
+                        "renderer": "Browser",
+                        "transform": {
+                            "x": 500,
+                            "y": 395,
+                            "w": 1000,
+                            "h": 656,
+                            "r": 0
+                        },
+                        "type": "Shape"
+                    }
+                ],
+                "rootIds": [
+                    "1775037309611",
+                    "1775037309184",
+                    "1775037309300",
+                    "1775037309333",
+                    "1775037309340"
+                ],
+                "title": "Home"
+            },
+            {
+                "id": "1775037309787",
+                "items": [
+                    {
+                        "id": "1775037309911",
+                        "appearance": {
+                            "FOREGROUND_COLOR": 16777215,
+                            "TEXT_DISABLED": true
+                        },
+                        "renderer": "Browser",
+                        "transform": {
+                            "x": 500,
+                            "y": 398,
+                            "w": 1000,
+                            "h": 656,
+                            "r": 0
+                        },
+                        "type": "Shape"
+                    },
+                    {
+                        "id": "1775037309912",
+                        "appearance": {
+                            "FONT_SIZE": 24,
+                            "BACKGROUND_COLOR": 2434341,
+                            "TEXT": "Mon site Portfolio"
+                        },
+                        "renderer": "Heading",
+                        "transform": {
+                            "x": 509,
+                            "y": 127,
+                            "w": 210,
+                            "h": 48,
+                            "r": 0
+                        },
+                        "type": "Shape"
+                    },
+                    {
+                        "id": "1775037309993",
+                        "appearance": {
+                            "STROKE_COLOR": 13224393,
+                            "STROKE_THICKNESS": 2,
+                            "TEXT_DISABLED": true
+                        },
+                        "renderer": "HorizontalLine",
+                        "transform": {
+                            "x": 509,
+                            "y": 170,
+                            "w": 1000,
+                            "h": 2,
+                            "r": 0
+                        },
+                        "type": "Shape"
+                    },
+                    {
+                        "id": "1775037310084",
+                        "appearance": {
+                            "FONT_SIZE": 24,
+                            "BACKGROUND_COLOR": 2434341,
+                            "TEXT": "Login :"
+                        },
+                        "renderer": "Heading",
+                        "transform": {
+                            "x": 145,
+                            "y": 277,
+                            "w": 92,
+                            "h": 48,
+                            "r": 0
+                        },
+                        "type": "Shape"
+                    },
+                    {
+                        "id": "1775037310243",
+                        "appearance": {
+                            "BORDER_RADIUS": 0,
+                            "FOREGROUND_COLOR": 16777215,
+                            "FONT_SIZE": 16,
+                            "BACKGROUND_COLOR": 0,
+                            "STROKE_COLOR": 13224393,
+                            "STROKE_THICKNESS": 1,
+                            "TEXT_ALIGNMENT": "center",
+                            "TEXT": "",
+                            "PADDING_HORIZONTAL2": 10,
+                            "PADDING_VERTICAL2": 10
+                        },
+                        "renderer": "Rectangle",
+                        "transform": {
+                            "x": 500.5,
+                            "y": 444,
+                            "w": 833,
+                            "h": 382,
+                            "r": 0
+                        },
+                        "type": "Shape"
+                    },
+                    {
+                        "id": "1775037310404",
+                        "appearance": {
+                            "STROKE_COLOR": 13224393,
+                            "STROKE_THICKNESS": 2,
+                            "TEXT_DISABLED": true
+                        },
+                        "renderer": "HorizontalLine",
+                        "transform": {
+                            "x": 145,
+                            "y": 302,
+                            "w": 92,
+                            "h": 2,
+                            "r": 0
+                        },
+                        "type": "Shape"
+                    },
+                    {
+                        "id": "1775037310585",
+                        "appearance": {
+                            "FOREGROUND_COLOR": 15790320,
+                            "FONT_SIZE": 16,
+                            "BACKGROUND_COLOR": 2434341,
+                            "STROKE_COLOR": 13224393,
+                            "STROKE_THICKNESS": 1,
+                            "TEXT_ALIGNMENT": "center",
+                            "TEXT": "Login"
+                        },
+                        "renderer": "Button",
+                        "transform": {
+                            "x": 798,
+                            "y": 585,
+                            "w": 100,
+                            "h": 30,
+                            "r": 0
+                        },
+                        "type": "Shape"
+                    },
+                    {
+                        "id": "1775037310605",
+                        "appearance": {
+                            "FONT_SIZE": 16,
+                            "BACKGROUND_COLOR": 2434341,
+                            "TEXT": "email :"
+                        },
+                        "renderer": "Label",
+                        "transform": {
+                            "x": 339,
+                            "y": 376,
+                            "w": 58,
+                            "h": 30,
+                            "r": 0
+                        },
+                        "type": "Shape"
+                    },
+                    {
+                        "id": "1775037310616",
+                        "appearance": {
+                            "FONT_SIZE": 16,
+                            "BACKGROUND_COLOR": 2434341,
+                            "TEXT": "password :"
+                        },
+                        "renderer": "Label",
+                        "transform": {
+                            "x": 353,
+                            "y": 474,
+                            "w": 86,
+                            "h": 30,
+                            "r": 0
+                        },
+                        "type": "Shape"
+                    },
+                    {
+                        "id": "1775037310739",
+                        "appearance": {
+                            "FOREGROUND_COLOR": 16777215,
+                            "FONT_SIZE": 16,
+                            "BACKGROUND_COLOR": 2434341,
+                            "STROKE_COLOR": 13224393,
+                            "STROKE_THICKNESS": 1,
+                            "TEXT_ALIGNMENT": "left",
+                            "TEXT": "TextInput"
+                        },
+                        "renderer": "TextInput",
+                        "transform": {
+                            "x": 533.5,
+                            "y": 376,
+                            "w": 287,
+                            "h": 30,
+                            "r": 0
+                        },
+                        "type": "Shape"
+                    },
+                    {
+                        "id": "1775037310792",
+                        "appearance": {
+                            "FOREGROUND_COLOR": 16777215,
+                            "FONT_SIZE": 16,
+                            "BACKGROUND_COLOR": 2434341,
+                            "STROKE_COLOR": 13224393,
+                            "STROKE_THICKNESS": 1,
+                            "TEXT_ALIGNMENT": "left",
+                            "TEXT": "TextInput"
+                        },
+                        "renderer": "TextInput",
+                        "transform": {
+                            "x": 565.5,
+                            "y": 476,
+                            "w": 287,
+                            "h": 30,
+                            "r": 0
+                        },
+                        "type": "Shape"
+                    }
+                ],
+                "rootIds": [
+                    "1775037309911",
+                    "1775037309912",
+                    "1775037309993",
+                    "1775037310243",
+                    "1775037310084",
+                    "1775037310404",
+                    "1775037310585",
+                    "1775037310605",
+                    "1775037310616",
+                    "1775037310739",
+                    "1775037310792"
+                ],
+                "title": "Login"
+            },
+            {
+                "id": "1775037311125",
+                "items": [],
+                "rootIds": []
+            },
+            {
+                "id": "7901bf71-4018-6052-b6c2-9a161d5fb76c",
+                "items": [
+                    {
+                        "id": "1775037309911",
+                        "appearance": {
+                            "FOREGROUND_COLOR": 16777215,
+                            "TEXT_DISABLED": true
+                        },
+                        "renderer": "Browser",
+                        "transform": {
+                            "x": 500,
+                            "y": 398,
+                            "w": 1000,
+                            "h": 656,
+                            "r": 0
+                        },
+                        "type": "Shape"
+                    },
+                    {
+                        "id": "1775037309912",
+                        "appearance": {
+                            "FONT_SIZE": 24,
+                            "BACKGROUND_COLOR": 2434341,
+                            "TEXT": "Mon site Portfolio"
+                        },
+                        "renderer": "Heading",
+                        "transform": {
+                            "x": 509,
+                            "y": 127,
+                            "w": 210,
+                            "h": 48,
+                            "r": 0
+                        },
+                        "type": "Shape"
+                    },
+                    {
+                        "id": "1775037309993",
+                        "appearance": {
+                            "STROKE_COLOR": 13224393,
+                            "STROKE_THICKNESS": 2,
+                            "TEXT_DISABLED": true
+                        },
+                        "renderer": "HorizontalLine",
+                        "transform": {
+                            "x": 509,
+                            "y": 170,
+                            "w": 1000,
+                            "h": 2,
+                            "r": 0
+                        },
+                        "type": "Shape"
+                    },
+                    {
+                        "id": "1775037310084",
+                        "appearance": {
+                            "FONT_SIZE": 24,
+                            "BACKGROUND_COLOR": 2434341,
+                            "TEXT": "Sign Up :"
+                        },
+                        "renderer": "Heading",
+                        "transform": {
+                            "x": 157,
+                            "y": 277,
+                            "w": 116,
+                            "h": 48,
+                            "r": 0
+                        },
+                        "type": "Shape"
+                    },
+                    {
+                        "id": "1775037310243",
+                        "appearance": {
+                            "BORDER_RADIUS": 0,
+                            "FOREGROUND_COLOR": 16777215,
+                            "FONT_SIZE": 16,
+                            "BACKGROUND_COLOR": 0,
+                            "STROKE_COLOR": 13224393,
+                            "STROKE_THICKNESS": 1,
+                            "TEXT_ALIGNMENT": "center",
+                            "TEXT": "",
+                            "PADDING_HORIZONTAL2": 10,
+                            "PADDING_VERTICAL2": 10
+                        },
+                        "renderer": "Rectangle",
+                        "transform": {
+                            "x": 500.5,
+                            "y": 444,
+                            "w": 833,
+                            "h": 382,
+                            "r": 0
+                        },
+                        "type": "Shape"
+                    },
+                    {
+                        "id": "1775037310404",
+                        "appearance": {
+                            "STROKE_COLOR": 13224393,
+                            "STROKE_THICKNESS": 2,
+                            "TEXT_DISABLED": true
+                        },
+                        "renderer": "HorizontalLine",
+                        "transform": {
+                            "x": 145,
+                            "y": 302,
+                            "w": 92,
+                            "h": 2,
+                            "r": 0
+                        },
+                        "type": "Shape"
+                    },
+                    {
+                        "id": "1775037310585",
+                        "appearance": {
+                            "FOREGROUND_COLOR": 15790320,
+                            "FONT_SIZE": 16,
+                            "BACKGROUND_COLOR": 2434341,
+                            "STROKE_COLOR": 13224393,
+                            "STROKE_THICKNESS": 1,
+                            "TEXT_ALIGNMENT": "center",
+                            "TEXT": "Login"
+                        },
+                        "renderer": "Button",
+                        "transform": {
+                            "x": 798,
+                            "y": 585,
+                            "w": 100,
+                            "h": 30,
+                            "r": 0
+                        },
+                        "type": "Shape"
+                    },
+                    {
+                        "id": "1775037310605",
+                        "appearance": {
+                            "FONT_SIZE": 16,
+                            "BACKGROUND_COLOR": 2434341,
+                            "TEXT": "email :"
+                        },
+                        "renderer": "Label",
+                        "transform": {
+                            "x": 339,
+                            "y": 376,
+                            "w": 58,
+                            "h": 30,
+                            "r": 0
+                        },
+                        "type": "Shape"
+                    },
+                    {
+                        "id": "1775037310616",
+                        "appearance": {
+                            "FONT_SIZE": 16,
+                            "BACKGROUND_COLOR": 2434341,
+                            "TEXT": "password :"
+                        },
+                        "renderer": "Label",
+                        "transform": {
+                            "x": 353,
+                            "y": 474,
+                            "w": 86,
+                            "h": 30,
+                            "r": 0
+                        },
+                        "type": "Shape"
+                    },
+                    {
+                        "id": "1775037310739",
+                        "appearance": {
+                            "FOREGROUND_COLOR": 16777215,
+                            "FONT_SIZE": 16,
+                            "BACKGROUND_COLOR": 2434341,
+                            "STROKE_COLOR": 13224393,
+                            "STROKE_THICKNESS": 1,
+                            "TEXT_ALIGNMENT": "left",
+                            "TEXT": "TextInput"
+                        },
+                        "renderer": "TextInput",
+                        "transform": {
+                            "x": 533.5,
+                            "y": 376,
+                            "w": 287,
+                            "h": 30,
+                            "r": 0
+                        },
+                        "type": "Shape"
+                    },
+                    {
+                        "id": "1775037310792",
+                        "appearance": {
+                            "FOREGROUND_COLOR": 16777215,
+                            "FONT_SIZE": 16,
+                            "BACKGROUND_COLOR": 2434341,
+                            "STROKE_COLOR": 13224393,
+                            "STROKE_THICKNESS": 1,
+                            "TEXT_ALIGNMENT": "left",
+                            "TEXT": "TextInput"
+                        },
+                        "renderer": "TextInput",
+                        "transform": {
+                            "x": 565.5,
+                            "y": 476,
+                            "w": 287,
+                            "h": 30,
+                            "r": 0
+                        },
+                        "type": "Shape"
+                    }
+                ],
+                "rootIds": [
+                    "1775037309911",
+                    "1775037309912",
+                    "1775037309993",
+                    "1775037310243",
+                    "1775037310084",
+                    "1775037310404",
+                    "1775037310585",
+                    "1775037310605",
+                    "1775037310616",
+                    "1775037310739",
+                    "1775037310792"
+                ],
+                "title": "Sign Up"
+            }
+        ],
+        "diagramIds": [
+            "1775037309031",
+            "1775037309787",
+            "7901bf71-4018-6052-b6c2-9a161d5fb76c",
+            "1775037311125"
+        ],
+        "id": "4cc9b902-ee52-7636-f620-1754c9490d4e",
+        "size": {
+            "x": 1000,
+            "y": 1000
+        }
+    },
+    "actions": [
+        {
+            "type": "items/transform",
+            "payload": {
+                "diagramId": "7901bf71-4018-6052-b6c2-9a161d5fb76c",
+                "timestamp": 1775038454809,
+                "oldBounds": {
+                    "x": 145,
+                    "y": 302,
+                    "w": 92,
+                    "h": 2,
+                    "r": 0
+                },
+                "newBounds": {
+                    "x": 157,
+                    "y": 302,
+                    "w": 116,
+                    "h": 2,
+                    "r": 0
+                },
+                "itemIds": [
+                    "1775037310404"
+                ]
+            }
+        },
+        {
+            "type": "items/paste",
+            "payload": {
+                "diagramId": "7901bf71-4018-6052-b6c2-9a161d5fb76c",
+                "timestamp": 1775038469296,
+                "json": "{\"visuals\":[{\"id\":\"1775037311170\",\"appearance\":{\"FONT_SIZE\":16,\"BACKGROUND_COLOR\":2434341,\"TEXT\":\"email :\"},\"renderer\":\"Label\",\"transform\":{\"x\":339,\"y\":376,\"w\":58,\"h\":30,\"r\":0},\"type\":\"Shape\"},{\"id\":\"1775037311171\",\"appearance\":{\"FOREGROUND_COLOR\":16777215,\"FONT_SIZE\":16,\"BACKGROUND_COLOR\":2434341,\"STROKE_COLOR\":13224393,\"STROKE_THICKNESS\":1,\"TEXT_ALIGNMENT\":\"left\",\"TEXT\":\"TextInput\"},\"renderer\":\"TextInput\",\"transform\":{\"x\":533.5,\"y\":376,\"w\":287,\"h\":30,\"r\":0},\"type\":\"Shape\"}],\"groups\":[]}",
+                "offset": 50
+            }
+        },
+        {
+            "type": "items/transform",
+            "payload": {
+                "diagramId": "7901bf71-4018-6052-b6c2-9a161d5fb76c",
+                "timestamp": 1775038473217,
+                "oldBounds": {
+                    "x": 543.5,
+                    "y": 426,
+                    "w": 367,
+                    "h": 30,
+                    "r": 0
+                },
+                "newBounds": {
+                    "x": 493.5,
+                    "y": 426,
+                    "w": 367,
+                    "h": 30,
+                    "r": 0
+                },
+                "itemIds": [
+                    "1775037311170",
+                    "1775037311171"
+                ]
+            }
+        },
+        {
+            "type": "items/appearance",
+            "payload": {
+                "diagramId": "7901bf71-4018-6052-b6c2-9a161d5fb76c",
+                "timestamp": 1775038482634,
+                "appearance": {
+                    "key": "TEXT",
+                    "value": "Name :"
+                },
+                "force": false,
+                "itemIds": [
+                    "1775037310605"
+                ]
+            }
+        },
+        {
+            "type": "items/appearance",
+            "payload": {
+                "diagramId": "7901bf71-4018-6052-b6c2-9a161d5fb76c",
+                "timestamp": 1775038504030,
+                "appearance": {
+                    "key": "TEXT",
+                    "value": "Sign Up"
+                },
+                "force": false,
+                "itemIds": [
+                    "1775037310585"
+                ]
+            }
+        },
+        {
+            "type": "diagram/remove",
+            "payload": {
+                "diagramId": "1775037311125",
+                "timestamp": 1775038539383
+            }
+        },
+        {
+            "type": "diagram/diagram",
+            "payload": {
+                "diagramId": "7901bf71-4018-6052-b6c2-9a161d5fb76c",
+                "timestamp": 1775038541183
+            }
+        },
+        {
+            "type": "diagram/rename",
+            "payload": {
+                "diagramId": "e68a6b2e-901b-c7f6-96e9-8c082263e7fb",
+                "timestamp": 1775038555233,
+                "title": "Profile"
+            }
+        },
+        {
+            "type": "items/appearance",
+            "payload": {
+                "diagramId": "e68a6b2e-901b-c7f6-96e9-8c082263e7fb",
+                "timestamp": 1775038566622,
+                "appearance": {
+                    "key": "TEXT",
+                    "value": "Profile :"
+                },
+                "force": false,
+                "itemIds": [
+                    "1775037310084"
+                ]
+            }
+        },
+        {
+            "type": "items/appearance",
+            "payload": {
+                "diagramId": "e68a6b2e-901b-c7f6-96e9-8c082263e7fb",
+                "timestamp": 1775038605170,
+                "appearance": {
+                    "key": "TEXT",
+                    "value": "jina2 link to your name"
+                },
+                "force": false,
+                "itemIds": [
+                    "1775037310739"
+                ]
+            }
+        },
+        {
+            "type": "items/appearance",
+            "payload": {
+                "diagramId": "e68a6b2e-901b-c7f6-96e9-8c082263e7fb",
+                "timestamp": 1775038606819,
+                "appearance": {
+                    "key": "TEXT",
+                    "value": "jina2 link to your name"
+                },
+                "force": false,
+                "itemIds": [
+                    "1775037311171"
+                ]
+            }
+        },
+        {
+            "type": "items/appearance",
+            "payload": {
+                "diagramId": "e68a6b2e-901b-c7f6-96e9-8c082263e7fb",
+                "timestamp": 1775038609707,
+                "appearance": {
+                    "key": "TEXT",
+                    "value": "jina2 link to your name"
+                },
+                "force": false,
+                "itemIds": [
+                    "1775037310792"
+                ]
+            }
+        },
+        {
+            "type": "items/appearance",
+            "payload": {
+                "diagramId": "e68a6b2e-901b-c7f6-96e9-8c082263e7fb",
+                "timestamp": 1775038614506,
+                "appearance": {
+                    "key": "TEXT",
+                    "value": "jina2 link to your email"
+                },
+                "force": false,
+                "itemIds": [
+                    "1775037311171"
+                ]
+            }
+        },
+        {
+            "type": "items/appearance",
+            "payload": {
+                "diagramId": "e68a6b2e-901b-c7f6-96e9-8c082263e7fb",
+                "timestamp": 1775038635642,
+                "appearance": {
+                    "key": "TEXT",
+                    "value": "jina2 link to your password"
+                },
+                "force": false,
+                "itemIds": [
+                    "1775037310792"
+                ]
+            }
+        },
+        {
+            "type": "items/remove",
+            "payload": {
+                "diagramId": "e68a6b2e-901b-c7f6-96e9-8c082263e7fb",
+                "timestamp": 1775038649645,
+                "itemIds": [
+                    "1775037310585"
+                ]
+            }
+        }
+    ]
+}
