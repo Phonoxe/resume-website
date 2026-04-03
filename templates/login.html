@@ -1,12 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>Login</h1>
     <form id="loginForm" onsubmit="submitForm(); return false;">
-        <input type="email" id="email" placeholder="Enter your email">
-        <input type="password" id="password" placeholder="Enter your password">
-        <button type="submit">Log in</button>
+        <div class="card">
+            <h2 class="card-title">Login :</h2>
+            <hr class="card-divider">
+            
+            <div class="form-group">
+                <label for="email">email :</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">password :</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+
+            <div class="btn-container">
+                <button type="submit">Login</button>
+            </div>
+            <p id="feedback"></p>
+        </div>
     </form>
-    <p id="feedback"></p>
 
 <script>
     async function submitForm() {

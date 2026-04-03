@@ -166,8 +166,6 @@ def see_database():
 # This route adds a new user to the users list
 @app.post("/add_user")
 def add_user(user: User):
-    if not user.password or user.password.strip() == "":
-        return JSONResponse(status_code=400, content={"error": "Password is required"})
     previous_user = next(
         (u for u in user_database if u.id == user.info.coordinate.email), None
     )
