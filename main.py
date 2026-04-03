@@ -163,15 +163,6 @@ def see_database():
     return user_database
 
 
-# This route verifies if the given id correspond to a user, if yes, returns it
-@app.get("/get_user")
-def get_user(id: str):
-    for user in user_database:
-        if user.id == id:
-            return user
-    return JSONResponse(status_code=404, content="User not found")
-
-
 # This route adds a new user to the users list
 @app.post("/add_user")
 def add_user(user: User):
