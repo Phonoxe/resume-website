@@ -4,29 +4,39 @@
 {% block title %}Modify Name{% endblock %}
 
 {% block content %}
-    <h1>Modify your name</h1>
-    <input type="text" id="newName" placeholder="Enter your new name">
-    <button type="button" onclick="submitName()">Confirm</button>
+<div class="card">
+    <h2 class="card-title">Modify your name :</h2>
+    <hr class="card-divider">
+
+    <div class="form-group">
+        <label for="newName">Name :</label>
+        <input type="text" id="newName" placeholder="Enter your new name">
+    </div>
+
+    <div class="btn-container">
+        <button type="button" onclick="submitName()">Confirm</button>
+    </div>
     <p id="feedback"></p>
+</div>
 
-    <script>
-        const params = new URLSearchParams(window.location.search);
-        const id = params.get("id");
+<script>
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
 
-        async function submitName() {
-            const newName = document.getElementById("newName").value;
-            const token = localStorage.getItem("token");
-            const response = await fetch(`/modify_user_name?id=${id}&name=${newName}`, {
-                method: "POST",
-                headers: {
-                    "Authorization": `Bearer ${token}`
-                }
-            });
-            if (response.ok) {
-                window.location.href = `/profile?id=${id}`;
-            } else {
-                document.getElementById("feedback").innerText = "Something went wrong.";
+    async function submitName() {
+        const newName = document.getElementById("newName").value;
+        const token = localStorage.getItem("token");
+        const response = await fetch(`/modify_user_name?id=${id}&name=${newName}`, {
+            method: "POST",
+            headers: {
+                "Authorization": `Bearer ${token}`
             }
+        });
+        if (response.ok) {
+            window.location.href = `/profile?id=${id}`;
+        } else {
+            document.getElementById("feedback").innerText = "Something went wrong.";
         }
-    </script>
+    }
+</script>
 {% endblock %}

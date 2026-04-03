@@ -9,28 +9,27 @@
     </form>
     <p id="feedback"></p>
 
-    <script>
-        async function submitForm() {
-            const payload = {
-                password: document.getElementById("password").value,
-                info: {
-                    name: document.getElementById("username").value,
-                    coordinate: {
-                        email: document.getElementById("email").value
-                    }
+<script>
+    async function submitForm() {
+        const payload = {
+            password: document.getElementById("password").value,
+            info: {
+                name: document.getElementById("username").value,
+                coordinate: {
+                    email: document.getElementById("email").value
                 }
-            };
-            const response = await fetch("/add_user", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(payload)
-            });
-            if (response.ok) {
-                window.location.href = "/login";
-            } else {
-                data = await response.json()
-                document.getElementById("feedback").innerText = data.error;
             }
+        };
+        const response = await fetch("/add_user", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+        });
+        if (response.ok) {
+            window.location.href = "/login";
+        } else {
+            document.getElementById("feedback").innerText = "Something went wrong.";
         }
-    </script>
+    }
+</script>
 {% endblock %}
