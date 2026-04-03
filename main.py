@@ -203,8 +203,11 @@ def set_user_name(name: str, current_user: User = Depends(get_current_user)):
 
 # This route deletes a user given its id
 @app.delete("/delete_user")
-def delete_user(id: int):
-    user = user_database.pop(id)
+def delete_user(id: str):
+    user = next((user for user in user_database if user.id == id), None)
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    user_database.remove(user)
     save_database()
     return f"{user.info.name} Was removed"
 
