@@ -45,7 +45,7 @@
             body: JSON.stringify(payload)
         });
         if (response.ok) {
-                window.location.href = "/login";
+            window.location.href = "/login";
         } else {
             data = await response.json()
             document.getElementById("feedback").innerText = data.error;
