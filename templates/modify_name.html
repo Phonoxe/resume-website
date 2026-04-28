@@ -7,23 +7,23 @@
 <div class="card">
     <h2 class="card-title">Modify your name :</h2>
     <hr class="card-divider">
-
-    <div class="form-group">
-        <label for="newName">Name :</label>
-        <input type="text" id="newName" placeholder="Enter your new name" required>
-    </div>
-
-    <div class="btn-container">
-        <button type="button" onclick="submitName()">Confirm</button>
-    </div>
+    <form id="nameForm" onsubmit="submitForm(); return false;">
+        <div class="form-group">
+            <label for="newName">Name :</label>
+            <input type="text" id="newName" placeholder="Enter your new name" required>
+        </div>
+        <div class="btn-container">
+            <button type="submit">Confirm</button>
+        </div>
     <p id="feedback"></p>
+    </form>
 </div>
 
 <script>
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
 
-    async function submitName() {
+    async function submitForm() {
         const newName = document.getElementById("newName").value;
         const token = localStorage.getItem("token");
         const response = await fetch(`/modify_user_name?id=${id}&name=${newName}`, {

@@ -23,6 +23,11 @@
     </form>
 
 <script>
+    const existing = localStorage.getItem("token");
+    if (existing) {
+        window.location.href = "/profile";
+    }
+
     async function submitForm() {
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
